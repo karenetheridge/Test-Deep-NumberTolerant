@@ -1,0 +1,6 @@
+/.ackrc
+/.build/
+!/.gitignore
+/.latest
+/Test-Deep-NumberTolerant-*/
+/Test-Deep-NumberTolerant-*.tar.gz
