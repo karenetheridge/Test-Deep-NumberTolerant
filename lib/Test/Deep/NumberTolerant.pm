@@ -79,7 +79,8 @@ __END__
 =head1 DESCRIPTION
 
 C<Test::Deep::NumberTolerant> provides the sub C<within_tolerance> to indicate
-that the data being tested matches the equivalent C<tolerance(...)> value.
+that the data being tested matches the equivalent C<tolerance(...)> value
+from L<Number::Tolerant>.
 
 I wrote this because I found myself doing this a lot:
 
