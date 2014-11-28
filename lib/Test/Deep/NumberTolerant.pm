@@ -87,7 +87,7 @@ I wrote this because I found myself doing this a lot:
     cmp_deeply(
         $thing,
         methods(
-            delete_time => methods(epoch => code( sub { $_[0] == tolerance(time(), plus_or_minus => 2) || (0, "got $_[0], expected ", time()) } )),
+            delete_time => methods(epoch => code( sub { $_[0] == tolerance(time(), offset => (-2,0)) || (0, "got $_[0], expected ", time()) } )),
         ),
         'object has been deleted',
     );
@@ -97,10 +97,12 @@ With this module, this can be simplified to the much more readable:
     cmp_deeply(
         $thing,
         methods(
-            delete_time => methods(epoch => within_tolerance(time(), plus_or_minus => 2)),
+            delete_time => methods(epoch => within_tolerance(time(), offset => (-2,0))),
         ),
         'object has been deleted',
     );
+
+(Note that for the simple C<plus_or_minus> case, you can also use L<Test::Deep/num>.)
 
 =head1 FUNCTIONS
 
