@@ -132,5 +132,6 @@ I am also usually active on irc, as 'ether' at C<irc.perl.org>.
 =for :list
 * L<Test::Deep>
 * L<Number::Tolerant>
+* L<Test::Deep::Between>
 
 =cut
