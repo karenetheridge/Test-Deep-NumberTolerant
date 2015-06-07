@@ -7,18 +7,23 @@ package Test::Deep::NumberTolerant;
 
 our $VERSION = '0.002';
 
-use parent 'Test::Deep::Cmp';
-use Number::Tolerant;
-use namespace::clean;
 use Exporter 'import';
-
 our @EXPORT = qw(within_tolerance);
 
 sub within_tolerance
 {
     my ($number, @tolerance_args) = @_;
-    return __PACKAGE__->new($number, @tolerance_args);
+    return Test::Deep::NumberTolerant::Object->new($number, @tolerance_args);
 }
+
+package # hide from PAUSE
+    Test::Deep::NumberTolerant::Object;
+
+our $VERSION = '0.002';
+
+use parent 'Test::Deep::Cmp';
+use Number::Tolerant;
+use namespace::clean;
 
 sub init
 {
