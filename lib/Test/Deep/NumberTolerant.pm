@@ -5,6 +5,8 @@ package Test::Deep::NumberTolerant;
 # KEYWORDS: testing tests plugin numbers tolerance range epsilon uncertainty
 # vim: set ts=8 sw=4 tw=78 et :
 
+our $VERSION = '0.002';
+
 use parent 'Test::Deep::Cmp';
 use Number::Tolerant;
 use namespace::clean;
