@@ -7,7 +7,7 @@ package Test::Deep::NumberTolerant;
 
 our $VERSION = '0.002';
 
-use Exporter 'import';
+use Exporter 5.57 'import';
 our @EXPORT = qw(within_tolerance);
 
 sub within_tolerance
