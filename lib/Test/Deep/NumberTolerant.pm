@@ -23,7 +23,7 @@ our $VERSION = '0.002';
 
 use parent 'Test::Deep::Cmp';
 use Number::Tolerant;
-use namespace::clean;
+use namespace::clean 0.19;
 
 sub init
 {
