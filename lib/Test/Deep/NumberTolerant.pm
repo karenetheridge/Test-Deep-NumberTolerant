@@ -85,7 +85,8 @@ __END__
 
 =head1 DESCRIPTION
 
-C<Test::Deep::NumberTolerant> provides the sub C<within_tolerance> to indicate
+This is a L<Test::Deep> plugin that
+provides the sub C<within_tolerance> to indicate
 that the data being tested matches the equivalent C<tolerance(...)> value
 from L<Number::Tolerant>.
 
