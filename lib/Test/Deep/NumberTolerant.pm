@@ -133,5 +133,6 @@ renderGot
 * L<Test::Deep>
 * L<Number::Tolerant>
 * L<Test::Deep::Between>
+* L<Test::Deep::Fuzzy>
 
 =cut
