@@ -1,9 +1,9 @@
 use strict;
 use warnings;
 package Test::Deep::NumberTolerant;
+# vim: set ts=8 sts=4 sw=4 tw=115 et :
 # ABSTRACT: A Test::Deep plugin for testing numbers within a tolerance range
 # KEYWORDS: testing tests plugin numbers tolerance range epsilon uncertainty
-# vim: set ts=8 sts=4 sw=4 tw=115 et :
 
 our $VERSION = '0.002';
 
