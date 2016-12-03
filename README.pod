@@ -8,7 +8,7 @@ Test::Deep::NumberTolerant - A Test::Deep plugin for testing numbers within a to
 
 =head1 VERSION
 
-version 0.001
+version 0.002
 
 =head1 SYNOPSIS
 
@@ -28,15 +28,17 @@ version 0.001
 
 =head1 DESCRIPTION
 
-C<Test::Deep::NumberTolerant> provides the sub C<within_tolerance> to indicate
-that the data being tested matches the equivalent C<tolerance(...)> value.
+This is a L<Test::Deep> plugin that
+provides the sub C<within_tolerance> to indicate
+that the data being tested matches the equivalent C<tolerance(...)> value
+from L<Number::Tolerant>.
 
 I wrote this because I found myself doing this a lot:
 
     cmp_deeply(
         $thing,
         methods(
-            delete_time => methods(epoch => code( sub { $_[0] == tolerance(time(), plus_or_minus => 2) || (0, "got $_[0], expected ", time()) } )),
+            delete_time => methods(epoch => code( sub { $_[0] == tolerance(time(), offset => (-2,0)) || (0, "got $_[0], expected ", time()) } )),
         ),
         'object has been deleted',
     );
@@ -46,10 +48,12 @@ With this module, this can be simplified to the much more readable:
     cmp_deeply(
         $thing,
         methods(
-            delete_time => methods(epoch => within_tolerance(time(), plus_or_minus => 2)),
+            delete_time => methods(epoch => within_tolerance(time(), offset => (-2,0))),
         ),
         'object has been deleted',
     );
+
+(Note that for the simple C<plus_or_minus> case, you can also use L<Test::Deep/num>.)
 
 =head1 FUNCTIONS
 
@@ -65,14 +69,6 @@ init
 renderExp
 renderGot
 
-=head1 SUPPORT
-
-=for stopwords irc
-
-Bugs may be submitted through L<the RT bug tracker|https://rt.cpan.org/Public/Dist/Display.html?Name=Test-Deep-NumberTolerant>
-(or L<bug-Test-Deep-NumberTolerant@rt.cpan.org|mailto:bug-Test-Deep-NumberTolerant@rt.cpan.org>).
-I am also usually active on irc, as 'ether' at C<irc.perl.org>.
-
 =head1 SEE ALSO
 
 =over 4
@@ -85,13 +81,34 @@ L<Test::Deep>
 
 L<Number::Tolerant>
 
+=item *
+
+L<Test::Deep::Between>
+
+=item *
+
+L<Test::Deep::Fuzzy>
+
 =back
+
+=head1 SUPPORT
+
+Bugs may be submitted through L<the RT bug tracker|https://rt.cpan.org/Public/Dist/Display.html?Name=Test-Deep-NumberTolerant>
+(or L<bug-Test-Deep-NumberTolerant@rt.cpan.org|mailto:bug-Test-Deep-NumberTolerant@rt.cpan.org>).
+
+There is also a mailing list available for users of this distribution, at
+L<http://lists.perl.org/list/perl-qa.html>.
+
+There is also an irc channel available for users of this distribution, at
+L<C<#perl> on C<irc.perl.org>|irc://irc.perl.org/#perl-qa>.
+
+I am also usually active on irc, as 'ether' at C<irc.perl.org>.
 
 =head1 AUTHOR
 
 Karen Etheridge <ether@cpan.org>
 
-=head1 COPYRIGHT AND LICENSE
+=head1 COPYRIGHT AND LICENCE
 
 This software is copyright (c) 2014 by Karen Etheridge.
 
