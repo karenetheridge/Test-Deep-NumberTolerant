@@ -22,13 +22,12 @@ package # hide from PAUSE
 our $VERSION = '0.002';
 
 use parent 'Test::Deep::Cmp';
-use Number::Tolerant;
-use namespace::clean 0.19;
+use Number::Tolerant ();
 
 sub init
 {
     my $self = shift;
-    $self->{tolerance} = tolerance(@_);
+    $self->{tolerance} = Number::Tolerant->new(@_);
 }
 
 sub descend
