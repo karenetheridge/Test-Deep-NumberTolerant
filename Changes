@@ -1,5 +1,7 @@
 Revision history for Test-Deep-NumberTolerant
 
+{{$NEXT}}
+
 0.002     2016-12-03 01:57:05Z
           - logic is split into two packages, so we do not have a module that
             both inherits and is an importer

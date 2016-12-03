@@ -5,7 +5,7 @@ package Test::Deep::NumberTolerant;
 # ABSTRACT: A Test::Deep plugin for testing numbers within a tolerance range
 # KEYWORDS: testing tests plugin numbers tolerance range epsilon uncertainty
 
-our $VERSION = '0.002';
+our $VERSION = '0.003';
 
 use Exporter 5.57 'import';
 our @EXPORT = qw(within_tolerance);
@@ -19,7 +19,7 @@ sub within_tolerance
 package # hide from PAUSE
     Test::Deep::NumberTolerant::Object;
 
-our $VERSION = '0.002';
+our $VERSION = '0.003';
 
 use parent 'Test::Deep::Cmp';
 use Number::Tolerant ();
